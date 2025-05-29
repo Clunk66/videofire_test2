@@ -261,7 +261,7 @@ select:valid {
 .image-list {
   display: grid;
   gap: 15px;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
 }
 
 .image-item {
@@ -271,9 +271,10 @@ select:valid {
   background-color: #fff;
   cursor: move;
   display: flex;
-  min-width: 0;
-  box-sizing: border-box;
+  flex-direction: column;
   width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 .image-item.dragging {
