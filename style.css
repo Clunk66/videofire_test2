@@ -259,9 +259,9 @@ select:valid {
 
 /* Image Items */
 .image-list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 15px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 
 .image-item {
@@ -274,6 +274,7 @@ select:valid {
   flex-direction: column;
   width: 100%;
   box-sizing: border-box;
+  min-width: 0;
 }
 
 .image-item.dragging {
@@ -286,7 +287,7 @@ select:valid {
   position: relative;
   width: 100%;
   height: 0;
-  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+  padding-bottom: 100%; /* Square aspect ratio */
   overflow: hidden;
   background-color: #f8f9fa;
   border-radius: 4px;
@@ -308,6 +309,8 @@ select:valid {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 100%;
+  min-width: 0;
 }
 
 .image-text {
@@ -318,6 +321,7 @@ select:valid {
   border-radius: 4px;
   resize: vertical;
   font-family: inherit;
+  box-sizing: border-box;
 }
 
 .duration-control {
