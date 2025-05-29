@@ -271,10 +271,9 @@ select:valid {
   background-color: #fff;
   cursor: move;
   display: flex;
-  flex-direction: column;
-  width: 100%;
-  box-sizing: border-box;
   min-width: 0;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .image-item.dragging {
