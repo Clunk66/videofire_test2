@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Story Generator</title>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; media-src 'self' blob:">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="preview">
+        <h3>Preview</h3>
+        <div id="status">Ready to generate video.</div>
+        <video id="videoPreview" controls></video>
+        <div id="downloads"></div>
+        <div class="audio-section">
+            <h4>Background Music</h4>
+            <div class="audio-info">
+                <span id="audio-name">No audio selected</span>
+                <button id="select-audio">Select Audio</button>
+                <button id="remove-audio">Remove Audio</button>
+            </div>
+        </div>
+        <div class="video-controls">
+            <div class="font-toggle">
+                <label>
+                    <input type="checkbox" id="use-comic-font"> Use Comic Style Font
+                </label>
+            </div>
+            <button id="generate-video">Generate Video</button>
+        </div>
+    </div>
+
+    <div id="story-editor">
+        <div class="project-title">
+            <label for="project-title">Project Title</label>
+            <input type="text" id="project-title" required>
+        </div>
+
+        <div class="project-controls">
+            <button id="new-project">New Project</button>
+            <button id="save-project">Save Project</button>
+            <button id="load-project">Load Project</button>
+            <button id="add-story">Add Story</button>
+        </div>
+
+        <div id="stories"></div>
+    </div>
+
+    <input type="file" id="image-upload" accept="image/*" multiple>
+    <input type="file" id="audio-input" accept="audio/*">
+    <input type="file" id="load-input" accept="application/json">
+    <canvas id="videoCanvas"></canvas>
+
+    <template id="story-template">
+        <div class="story">
+            <div class="story-header">
+                <h3>Story <span class="story-number"></span></h3>
+                <div class="story-actions">
+                    <button class="move-story-up">↑</button>
+                    <button class="move-story-down">↓</button>
+                    <button class="delete-story">Delete</button>
+                </div>
+            </div>
+            <div class="story-content">
+                <div class="story-controls">
+                    <button class="add-images">Add Images</button>
+                    <select class="transition-type">
+                        <option value="fade">Fade</option>
+                        <option value="none">None</option>
+                    </select>
+                </div>
+                <div class="image-list"></div>
+            </div>
+        </div>
+    </template>
+
+    <template id="image-item-template">
+        <div class="image-item" draggable="true">
+            <div class="image-preview">
+                <img alt="Preview">
+            </div>
+            <div class="image-controls">
+                <textarea class="image-text" placeholder="Enter text for this image"></textarea>
+                <div class="duration-control">
+                    <label>Duration (seconds):
+                        <input type="number" class="image-duration" value="3" min="1" max="60">
+                    </label>
+                </div>
+                <div class="image-actions">
+                    <button class="move-image-up">↑</button>
+                    <button class="move-image-down">↓</button>
+                    <button class="delete-image">Delete</button>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script src="app.js"></script>
+</body>
+</html> 
